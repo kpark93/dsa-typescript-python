@@ -1,0 +1,14 @@
+{
+  "name": "dsa-typescript-python",
+  "version": "1.0.0",
+  "description": "Learning data structures & algorithms in TypeScript and Python — templates, not solutions.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Run a single file, e.g.:  npx tsx 01-arrays-and-hashing/two-sum/twoSum.ts\" && exit 0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
