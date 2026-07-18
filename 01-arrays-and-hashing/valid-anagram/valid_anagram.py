@@ -23,7 +23,15 @@ def is_anagram(s: str, t: str) -> bool:
     #                     letter in t (or compare two counts).
     # TODO(you): Step 3 — they're anagrams iff every count matches.
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
+    if len(s) != len(t):
+        return False
+    
+    count_s = {}
+    count_t = {}
+    for i in range(len(s)):
+        count_s[s[i]] = count_s.get(s[i], 0) + 1
+        count_t[t[i]] = count_t.get(t[i], 0) + 1
+    return count_s == count_t
 
 
 # ---- Self-check tests (do NOT edit) --------------------------------
