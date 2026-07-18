@@ -25,7 +25,18 @@ export function twoSum(nums: number[], target: number): number[] {
   // TODO(you): Step 3 — if the complement is already in the map, you're done.
   // TODO(you): Step 4 — otherwise record the current number and move on.
   // -------------------------------------------------------------------
-  return []; // ← replace with your solution
+  let seen_num: Map<number, number> = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    if (num === undefined) continue;
+
+    const complement = target - num;
+    if (seen_num.has(complement)) {
+      return [seen_num.get(complement)!, i];
+    }
+    seen_num.set(num, i);
+  }
+  return [];
 }
 
 // ---- Self-check tests (do NOT edit) ---------------------------------
