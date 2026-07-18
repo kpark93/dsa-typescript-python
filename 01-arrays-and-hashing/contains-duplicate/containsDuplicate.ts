@@ -23,7 +23,14 @@ export function containsDuplicate(nums: number[]): boolean {
   // TODO(you): Step 2 — as you scan, if you meet one you've seen, return true.
   // TODO(you): Step 3 — if you finish the scan, there were no duplicates.
   // -------------------------------------------------------------------
-  return false; // ← replace with your solution
+  let seen_num: number[] = [];
+  for (let num of nums) {
+    if (seen_num.includes(num)) {
+      return true;
+    }
+    seen_num.push(num);
+  }
+  return false;
 }
 
 // ---- Self-check tests (do NOT edit) ---------------------------------

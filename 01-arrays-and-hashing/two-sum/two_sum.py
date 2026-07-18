@@ -25,7 +25,14 @@ def two_sum(nums: List[int], target: int) -> List[int]:
     # TODO(you): Step 3 — if the complement is already in the map, you're done.
     # TODO(you): Step 4 — otherwise record the current number and move on.
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
+    seen_num = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen_num:
+            return [seen_num[complement], i]
+        seen_num[num] = i
+        print(seen_num)
+    return []
 
 
 # ---- Self-check tests (do NOT edit) --------------------------------
