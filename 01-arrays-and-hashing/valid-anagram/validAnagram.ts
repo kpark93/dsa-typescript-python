@@ -24,7 +24,19 @@ export function isAnagram(s: string, t: string): boolean {
   //                     letter in t (or compare two counts).
   // TODO(you): Step 3 — they're anagrams iff every count matches.
   // -------------------------------------------------------------------
-  return false; // ← replace with your solution
+  if (s.length !== t.length) return false;
+  let count_s: Map<string, number> = new Map();
+  let count_t: Map<string, number> = new Map();
+  for (const char of s) {
+    count_s.set(char, (count_s.get(char) ?? 0) + 1);
+  }
+  for (const char of t) {
+    count_t.set(char, (count_t.get(char) ?? 0) + 1);
+  }
+  for (const [char, count] of count_s) {
+    if (count_t.get(char) !== count) return false;
+  }
+  return true;
 }
 
 // ---- Self-check tests (do NOT edit) ---------------------------------
