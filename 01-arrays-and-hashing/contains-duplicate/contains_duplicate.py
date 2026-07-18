@@ -21,11 +21,15 @@ from typing import List
 def contains_duplicate(nums: List[int]) -> bool:
     # -----------------------------------------------------------------
     # TODO(you): Step 1 — track the values you've already seen.
+    see_num = []
     # TODO(you): Step 2 — as you scan, if you meet one you've seen, return True.
+    for num in nums:
+        if num in see_num:
+            return True
+        see_num.append(num)
     # TODO(you): Step 3 — if you finish the scan, there were no duplicates.
+    return False    
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
-
 
 # ---- Self-check tests (do NOT edit) --------------------------------
 # Run:  python3 contains_duplicate.py
