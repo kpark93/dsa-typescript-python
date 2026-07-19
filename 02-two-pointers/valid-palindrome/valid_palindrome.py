@@ -14,7 +14,7 @@ TODO(you): Approach — try the TWO-POINTER version for O(1) space:
 Time complexity:  O(?)   #
 Space complexity: O(?)   # did you build a cleaned copy, or compare in place?
 """
-
+import string
 
 def is_palindrome(s: str) -> bool:
     # -----------------------------------------------------------------
@@ -25,8 +25,18 @@ def is_palindrome(s: str) -> bool:
     #                     If they differ, it's not a palindrome.
     # TODO(you): Step 4 — if the pointers cross without a mismatch, return True.
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
+    s = s.translate(str.maketrans('', '', string.punctuation + string.whitespace)).lower()
+    left = 0
+    right = len(s) - 1
+    while left < right:
+        if s[left] == s[right]:
+            left += 1
+            right -= 1
+        else:
+            return False
+    return True
 
+        
 
 # ---- Self-check tests (do NOT edit) --------------------------------
 # Run:  python3 valid_palindrome.py
