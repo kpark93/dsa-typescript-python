@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Learning data structures & algorithms in TypeScript and Python — templates, not solutions.",
   "private": true,
+  "cursor": {
+    "commitAttribution": false,
+    "prAttribution": false
+  },
   "scripts": {
+    "prepare": "git config core.hooksPath .githooks && chmod +x .githooks/prepare-commit-msg",
     "test": "echo \"Run a single file, e.g.:  npx tsx 01-arrays-and-hashing/two-sum/twoSum.ts\" && exit 0"
   },
   "devDependencies": {

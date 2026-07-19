@@ -1,0 +1,3 @@
+#!/bin/sh
+ROOT="$(git rev-parse --show-toplevel)"
+node "$ROOT/scripts/strip-commit-attribution.js" "$1"
