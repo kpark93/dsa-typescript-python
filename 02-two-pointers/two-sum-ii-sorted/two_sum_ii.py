@@ -26,8 +26,18 @@ def two_sum_sorted(numbers: List[int], target: int) -> List[int]:
     #                     too small-> move `left`  inward (larger values)
     # TODO(you): Step 3 — when the sum matches, return the 1-BASED indices.
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
+    left = 0
+    right = len(numbers) - 1
+    while left < right:
+        if numbers[left] + numbers[right] == target:
+            return [left + 1, right + 1]
+        elif numbers[left] + numbers[right] < target:
+            left += 1
+        else:
+            right -= 1
 
+    return []
+    
 
 # ---- Self-check tests (do NOT edit) --------------------------------
 # Run:  python3 two_sum_ii.py
