@@ -26,9 +26,19 @@ export function twoSumSorted(numbers: number[], target: number): number[] {
   //                     too small -> move `left`  inward (larger values)
   // TODO(you): Step 3 — when the sum matches, return the 1-BASED indices.
   // -------------------------------------------------------------------
-  return []; // ← replace with your solution
+  let left = 0;
+  let right = numbers.length - 1;
+  while (left < right) {
+    if (numbers[left] + numbers[right] === target) {
+      return [left + 1, right + 1];
+    } else if (numbers[left] + numbers[right] < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+  return [];
 }
-
 // ---- Self-check tests (do NOT edit) ---------------------------------
 // Run:  npx tsx twoSumII.ts
 assert.deepStrictEqual(twoSumSorted([2, 7, 11, 15], 9), [1, 2]);
