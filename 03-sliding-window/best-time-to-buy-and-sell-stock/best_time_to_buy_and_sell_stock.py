@@ -25,8 +25,12 @@ def max_profit(prices: List[int]) -> int:
     #                     today beats it, then update the min price.
     # TODO(you): Step 4 — return the best profit (0 if it never went positive).
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
-
+    low_price = prices[0]
+    best_profit = 0
+    for price in prices:
+        best_profit = max(best_profit, price - low_price)
+        low_price = min(low_price, price)
+    return best_profit
 
 # ---- Self-check tests (do NOT edit) --------------------------------
 # Run:  python3 best_time_to_buy_and_sell_stock.py
