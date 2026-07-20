@@ -25,7 +25,13 @@ export function maxProfit(prices: number[]): number {
   //                     today beats it, then update the min price.
   // TODO(you): Step 4 — return the best profit (0 if it never went positive).
   // -------------------------------------------------------------------
-  return 0; // ← replace with your solution
+  let lowPrice = prices[0];
+  let bestProfit = 0;
+  for (const price of prices) {
+    bestProfit = Math.max(bestProfit, price - lowPrice);
+    lowPrice = Math.min(lowPrice, price);
+  }
+  return bestProfit;
 }
 
 // ---- Self-check tests (do NOT edit) ---------------------------------
