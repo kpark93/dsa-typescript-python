@@ -26,7 +26,18 @@ export function isPalindrome(s: string): boolean {
   //                     If they differ, it's not a palindrome.
   // TODO(you): Step 4 — if the pointers cross without a mismatch, return true.
   // -------------------------------------------------------------------
-  return false; // ← replace with your solution
+  s = s.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  let left = 0;
+  let right = s.length - 1;
+  while (left < right) {
+    if (s[left] !== s[right]) {
+      return false;
+    } else {
+      left++;
+      right--;
+    }
+  }
+  return true;
 }
 
 // ---- Self-check tests (do NOT edit) ---------------------------------
