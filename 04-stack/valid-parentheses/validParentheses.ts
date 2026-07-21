@@ -27,9 +27,20 @@ export function isValid(s: string): boolean {
   //                                 if the stack is empty or mismatched, fail.
   // TODO(you): Step 3 — valid only if the stack is empty at the end.
   // -------------------------------------------------------------------
-  return false; // ← replace with your solution
+  const stack: string[] = [];
+  for (const char of s) {
+    if (char === "(" || char === "[" || char === "{") {
+      stack.push(char);
+    } else if (char === ")" || char === "]" || char === "}") {
+      if (stack.length === 0) return false;
+      const top = stack.pop();
+      if (char === ")" && top !== "(") return false;
+      if (char === "]" && top !== "[") return false;
+      if (char === "}" && top !== "{") return false;
+    }
+  }
+  return stack.length === 0; 
 }
-
 // ---- Self-check tests (do NOT edit) ---------------------------------
 // Run:  npx tsx validParentheses.ts
 assert.strictEqual(isValid("()"), true);
