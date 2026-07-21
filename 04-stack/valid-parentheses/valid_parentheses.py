@@ -26,8 +26,21 @@ def is_valid(s: str) -> bool:
     #                                 if the stack is empty or mismatched, fail.
     # TODO(you): Step 3 — valid only if the stack is empty at the end.
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
-
+    stack = []
+    for char in s:
+        if char in "([{":
+            stack.append(char)
+        elif char in ")]}":
+            if not stack:
+                return False
+            top = stack.pop()
+            if char == ")" and top != "(":
+                return False
+            if char == "]" and top != "[":
+                return False
+            if char == "}" and top != "{":
+                return False
+    return not stack
 
 # ---- Self-check tests (do NOT edit) --------------------------------
 # Run:  python3 valid_parentheses.py
