@@ -36,7 +36,12 @@ def invert_tree(root: Optional[TreeNode]) -> Optional[TreeNode]:
     # TODO(you): Step 3 — recurse: invert each subtree too.
     # TODO(you): Step 4 — return root.
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
+    if root is None:
+        return None
+    root.left, root.right = root.right, root.left
+    invert_tree(root.left)
+    invert_tree(root.right)
+    return root
 
 
 # ---- Test helpers (provided — don't change) ------------------------
