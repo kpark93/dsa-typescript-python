@@ -38,7 +38,15 @@ export function reverseList(head: ListNode | null): ListNode | null {
   //                       (c) advance prev = current, current = nextTemp
   // TODO(you): Step 3 — the new head is `prev`. Return it.
   // -------------------------------------------------------------------
-  return null; // ← replace with your solution
+  let prev: ListNode | null = null;
+  let current: ListNode | null = head;
+    while (current != null) {
+      let nextUp = current.next;
+      current.next = prev;
+      prev = current;
+      current = nextUp;
+    }
+  return prev
 }
 
 // ---- Test helpers (provided — don't change) -------------------------
