@@ -35,7 +35,14 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     #                       (c) advance prev = current, current = next_temp
     # TODO(you): Step 3 — the new head is `prev`. Return it.
     # -----------------------------------------------------------------
-    pass  # ← replace with your solution
+    prev = None
+    current = head
+    while current is not None:
+        next_up = current.next
+        current.next = prev
+        prev = current
+        current = next_up
+    return prev
 
 
 # ---- Test helpers (provided — don't change) ------------------------
